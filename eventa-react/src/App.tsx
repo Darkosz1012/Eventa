@@ -1,9 +1,11 @@
-import { Home } from './pages'
+import { AuthPage } from '@pages/AuthPage'
 
 function App() {
 
   return (
-    <Home></Home>
+    <>
+      <AuthPage></AuthPage>
+    </>
   )
 }
 
