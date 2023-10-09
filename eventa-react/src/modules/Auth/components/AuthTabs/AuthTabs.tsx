@@ -2,10 +2,8 @@ import { Tab, Tabs, useTheme } from "@mui/material"
 import React from "react"
 import SignInForm from "../SignInForm/SignInForm"
 import styles from "./AuthTabs.module.scss"
-import SwipeableViews from 'react-swipeable-views';
-
 function AuthTabs(){
-    const theme = useTheme();
+    // const theme = useTheme();
     const [activeTab, setActiveTab] = React.useState(0);
     
     return(
@@ -14,14 +12,12 @@ function AuthTabs(){
                 <Tab label="Sign In"/>
                 <Tab label="Sign Up"/>
             </Tabs>
-            <SwipeableViews
-                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                index={activeTab}
-                // onChangeIndex={handleChangeIndex}
-            >
+            <div hidden={activeTab != 0}>
                 <SignInForm></SignInForm>
+            </div>
+            <div hidden={activeTab != 1}>
                 <SignInForm></SignInForm>
-            </SwipeableViews>
+            </div>
         </div>
     )
 }
