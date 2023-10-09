@@ -1,0 +1,36 @@
+// @use 'sass:color';
+$color-primary: #814bc4;
+$color-secondary:  #ffc045;
+
+html:root{
+    --color-primary: #{$color-primary};
+    --color-primary-light: #{lighten($color-primary, 5%)};
+    --color-primary-dark: #{darken($color-primary, 5%)};
+
+    --color-secondary: #{$color-secondary};
+    --color-secondary-light: #{lighten($color-secondary, 5%)};
+    --color-secondary-dark: #{darken($color-secondary, 5%)};
+
+
+
+    --color-main: #fff;
+
+
+
+    --mui-palette-primary-main: var(--color-primary);
+    --mui-palette-primary-light: var(--color-primary-light);
+    --mui-palette-primary-dark: var(--color-primary-dark);
+    --mui-palette-primary-contrastText: #fff;
+    --mui-palette-primary-mainChannel: 25 118 210;
+    --mui-palette-primary-lightChannel: 66 165 245;
+    --mui-palette-primary-darkChannel: 21 101 192;
+    --mui-palette-primary-contrastTextChannel: 255 255 255;
+    --mui-palette-secondary-main: var(--color-secondary);
+    --mui-palette-secondary-light: var(--color-secondary-light);
+    --mui-palette-secondary-dark: var(--color-secondary-dark);
+    --mui-palette-secondary-contrastText: #fff;
+    --mui-palette-secondary-mainChannel: 156 39 176;
+    --mui-palette-secondary-lightChannel: 186 104 200;
+    --mui-palette-secondary-darkChannel: 123 31 162;
+    --mui-palette-secondary-contrastTextChannel: 255 255 255;
+}

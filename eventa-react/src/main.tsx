@@ -1,10 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import './assets/global.scss'
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles'
+import MuiStyleProvider from "@config/MuiStyleProvider.tsx"
+import '@assets/scss/global.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <MuiStyleProvider>
+      <StyledEngineProvider injectFirst>
+        <App />
+      </StyledEngineProvider>
+    </MuiStyleProvider>
   </React.StrictMode>,
 )
