@@ -10,7 +10,7 @@ function AuthTabs(){
     
     return(
         <div className={styles.container}>
-            <Tabs value={activeTab} onChange={(event,value)=>{setActiveTab(value)}}>
+            <Tabs value={activeTab} onChange={(_event,value)=>{setActiveTab(value)}}>
                 <Tab label="Sign In"/>
                 <Tab label="Sign Up"/>
             </Tabs>
