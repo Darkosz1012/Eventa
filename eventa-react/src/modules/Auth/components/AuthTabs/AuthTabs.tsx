@@ -1,27 +1,35 @@
-import { Tab, Tabs, useTheme } from "@mui/material"
-import React from "react"
-import SignInForm from "../SignInForm/SignInForm"
+import { Tab, Tabs } from "@mui/material"
+import { useRef, useState } from "react"
+
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+import '@splidejs/react-splide/css';
+
+import { SignInForm } from "../SignInForm/"
 import styles from "./AuthTabs.module.scss"
-import SwipeableViews from 'react-swipeable-views';
+import { SignUpForm } from "../SignUpForm";
 
 function AuthTabs(){
-    const theme = useTheme();
-    const [activeTab, setActiveTab] = React.useState(0);
-    
+    const [activeTab, setActiveTab] = useState(0)
+    const splide = useRef<Splide>(null)
+
+    if(splide?.current){
+        splide.current.go(activeTab)
+    }
+
     return(
         <div className={styles.container}>
             <Tabs value={activeTab} onChange={(_event,value)=>{setActiveTab(value)}}>
-                <Tab label="Sign In"/>
-                <Tab label="Sign Up"/>
+                <Tab label="Sign In" data-testid="tab-sign-in"/>
+                <Tab label="Sign Up" data-testid="tab-sign-up"/>
             </Tabs>
-            <SwipeableViews
-                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                index={activeTab}
-                // onChangeIndex={handleChangeIndex}
-            >
-                <SignInForm></SignInForm>
-                <SignInForm></SignInForm>
-            </SwipeableViews>
+            <Splide ref={splide} options={{arrows: false, pagination:false, drag:false}}>
+                <SplideSlide>
+                    <SignInForm></SignInForm>
+                </SplideSlide>
+                <SplideSlide>
+                    <SignUpForm></SignUpForm>
+                </SplideSlide>
+            </Splide>
         </div>
     )
 }
